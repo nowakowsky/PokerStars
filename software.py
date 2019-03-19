@@ -1,16 +1,11 @@
-import win32gui #used in prepare_screen.py / move_and_resize.py
-from PIL import ImageGrab #Used to screenshots.py / board_cards.py
-import cv2 #used by card_info.py
-import numpy as np #used by card_info.py
-
 from prepare_screen import move_and_resize_windows #move and resize 6 windows to fit fullHD
 from board_cards import cards_on_board #takes a board number, grabs all cards from this board, returns list of cards (screenshots!)
 from card_info import grab_card_info #takes [6x5 list] containing screenshots of all cards, returns same list of info
 from card_info import card_info #takes a single card, return single info
 from player_turn import player_turn_check, available_moves_check
 from screenshot import screenshot
-from ingame import who_is_who
-
+from tight_agressive import card_power #check hand power
+import time, os
 #CONFIG FILES
 from config import cards 
 from config import not_a_card #used to filter trashes when detecting card values
@@ -45,12 +40,6 @@ def game_stage(last_checked_cards,stage,table): #returns game stage (new game, p
             return "River", current_cards
         else:
             return stage, current_cards
-            #this happens when checking state is the same???
-            #print ("F up when checking cards. Last checked card 0: {} Current card 0: {}.".format(last_checked_cards[0], current_cards[0]))
-
-from tight_agressive import card_power #check hand power
-import time, os
-#from opponent_movement import moves_on_board
 
 playing = 0 #playing on board 0
 move_and_resize_windows(window_name)
@@ -92,7 +81,4 @@ while True:
             if player_turn_check():
                 print ("Possible moves:", *available_moves_check())
         break
-    
     time.sleep(3)
-
-#Player position is always 0! Other players are 1-5 on left    

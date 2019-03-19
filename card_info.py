@@ -1,13 +1,11 @@
 import os, os.path
 import cv2
 import numpy as np
-
 from config import cards, colors #card list, color names
 #from config import not_a_card
 
 #returns color -> green/red/black/blue
-#checks for color settings in config.py/colors{}
-#returns value 
+#checks color settings in config.py/colors{}
 def color(img):
     rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) #change bgr image to rgb
 
@@ -21,7 +19,7 @@ def color(img):
         for j in i:    
             if (j == green).all():
                 color = "Green"
-                return colors[color] #returns color name set in ?config?
+                return colors[color]
             if (j == red).all():
                 color = "Red"
                 return colors[color]
@@ -62,8 +60,8 @@ def card_value(sum_blackwhite, blackwhite):
                 card_checked = "A"      
         return card_checked
     else:
-        # print (sum_blackwhite)
-        cv2.imwrite("cards_to_add\\%i.png" % sum_blackwhite, blackwhite)
+        #This one can be useful
+        #cv2.imwrite("cards_to_add\\%i.png" % sum_blackwhite, blackwhite)
         return "0"
             
 def card_info(card):
@@ -80,28 +78,24 @@ def card_info(card):
     #reversed to make sum smaller (0,0,0) < (255,255,255)
     blackwhite = black_white(img_gray_reversed)
 
-    #counts sum of colored image, not used anymore
-    #sum_color = img_color.sum()
-
     #sum of black white image, this is used to check value of card
     sum_blackwhite = blackwhite.sum()
     
     #Check value
     value = card_value(sum_blackwhite, blackwhite)
+
     #Check color
     info = color(img_color) + value
+
     #return color+value
     return info
 
 from screenshot import screenshot
 from config import not_a_card
-#changed to grab just one board
 
 def grab_card_info(card_screenshots, skip=not_a_card):
-    #temple
     cards_boards_all = ["", "", "", "", ""]
     for each_card,i in zip(card_screenshots, range(5)):
-            #This actually returns a card info
         current_card = card_info(each_card)
         if current_card not in skip:
             cards_boards_all[i] =  current_card

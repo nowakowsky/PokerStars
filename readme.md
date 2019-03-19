@@ -16,8 +16,3 @@
     Possible moves: raise fold call
 
 **This project has been made to learn some python basics, it's far from being perfect. Sorry!**
-Software fits up to 6 game windows on full HD screen (hard coded, it should be changed).
-ATM it's only operating on one table (first).
-6 and 9 are both recognized as 6. This problem has been solved in card_value() function.
-There are a some not used functions, those were used to save pictures of cards, players, token etc.
-Screenshot > screen_all_and_save() makes a screenshot of each screen and saves it to screenshots folder.
