@@ -1,6 +1,6 @@
-from prepare_screen import move_and_resize_windows #move and resize 6 windows to fit fullHD
-from board_cards import cards_on_board #takes a board number, grabs all cards from this board, returns list of cards (screenshots!)
-from card_info import grab_card_info #takes [6x5 list] containing screenshots of all cards, returns same list of info
+from prepare_screen import move_and_resize_windows
+from board_cards import cards_on_board #returns list of cards (screenshots!)
+from card_info import grab_card_info #takes list of screenshots, returns list of info
 from card_info import card_info #takes a single card, return single info
 from player_turn import player_turn_check, available_moves_check
 from screenshot import screenshot
