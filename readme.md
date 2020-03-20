@@ -16,3 +16,5 @@
     Possible moves: raise fold call
 
 **This project has been made to learn some python basics, it's far from being perfect. Sorry!**
+
+Update. If anything in PokerStars GUI has changed it won't work anymore.
