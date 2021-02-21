@@ -1,5 +1,5 @@
 # This app doesn't work anymore
-You can take a look at another one right there [github](https://github.com/nowakowsky/Pokerstars-Api)
+You can take a look at working one right there [github](https://github.com/nowakowsky/Pokerstars-Api)
 
 
 
