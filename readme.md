@@ -1,3 +1,9 @@
+# This app doesn't work anymore
+You can take a look at another one right there [github](https://github.com/nowakowsky/Pokerstars-Api)
+
+
+
+
 ## Run software.py after running PokerStars game.
 
 #### Working features:
